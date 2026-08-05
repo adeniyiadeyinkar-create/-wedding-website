@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zainab &amp; Abdulazeez — Nikkah &amp; Engagement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&family=Cormorant:wght@500;600&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #170F12;
+            --surface: #241820;
+            --surface-2: #2D1E27;
+            --cream: #F7EFE2;
+            --cream-deep: #2D1E27;
+            --wine: #B03B54;
+            --wine-deep: #6E2233;
+            --rose: #D9A6AE;
+            --gold: #D4AF37;
+            --gold-soft: #EAD9A8;
+            --sage: #8CA47C;
+            --ink: #EDE0D2;
+            --font-script: 'Mrs Saint Delafield', cursive;
+            --font-display: 'Playfair Display', serif;
+            --font-label: 'Cormorant', serif;
+            --font-body: 'Jost', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(ellipse at top, rgba(110, 34, 51, 0.4), transparent 60%),
+                radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.05) 1px, transparent 0) 0 0/22px 22px,
+                var(--bg);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-weight: 300;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        svg {
+            color: var(--gold);
+        }
+
+        /* ---------- utility ---------- */
+        .eyebrow {
+            font-family: var(--font-label);
+            font-size: 0.95rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--sage);
+            text-align: center;
+        }
+
+        .divider {
+            display: flex;
+            justify-content: center;
+            margin: 1.2rem 0 1.8rem;
+        }
+
+        .divider svg {
+            width: 180px;
+            height: 44px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            text-align: center;
+            color: var(--gold);
+            margin: 0 0 0.3rem;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        /* ---------- nav ---------- */
+        header.nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: rgba(23, 15, 18, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .brand {
+            font-family: var(--font-script);
+            font-size: 2rem;
+            color: var(--wine);
+            text-decoration: none;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav.tabs {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+        }
+
+        nav.tabs button {
+            position: relative;
+            font-family: var(--font-label);
+            font-size: 1.02rem;
+            letter-spacing: 0.06em;
+            background: none;
+            border: none;
+            color: var(--ink);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: color 0.25s;
+        }
+
+        nav.tabs button::after {
+            content: "";
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 0.15rem;
+            height: 1px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+        nav.tabs button:hover {
+            color: var(--gold-soft);
+        }
+
+        nav.tabs button:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav.tabs button.active {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        nav.tabs button.active::after {
+            transform: scaleX(1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--wine);
+            cursor: pointer;
+        }
+
+        main {
+            padding-top: 76px;
+        }
+
+        /* ---------- pages ---------- */
+        .page {
+            display: none;
+            min-height: 80vh;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page.active {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* ---------- hero ---------- */
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 64px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.2rem 3rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 35%, rgba(212, 175, 55, 0.1), transparent 70%),
+                radial-gradient(circle at 15% 20%, rgba(217, 166, 174, 0.1), transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(140, 164, 124, 0.1), transparent 45%);
+            pointer-events: none;
+        }
+
+        .hero-wreath {
+            width: min(340px, 78vw);
+            height: auto;
+            margin-bottom: -2.2rem;
+            color: var(--gold);
+            opacity: 0.55;
+        }
+
+        .hero .eyebrow {
+            margin-bottom: 0.4rem;
+            max-width: 46ch;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero h1 {
+            font-family: var(--font-script);
+            font-weight: 400;
+            font-size: clamp(3.6rem, 11vw, 7rem);
+            color: var(--wine);
+            margin: 0.1rem 0;
+            line-height: 1;
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.25), 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .amp {
+            color: var(--gold);
+            font-family: var(--font-script);
+            font-size: 0.7em;
+            padding: 0 0.08em;
+            vertical-align: -0.05em;
+        }
+
+        .hero p.tagline {
+            font-family: var(--font-label);
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--ink);
+            max-width: 34ch;
+            margin: 0.9rem auto 1.6rem;
+        }
+
+        .details-row {
+            display: flex;
+            gap: 2.4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-family: var(--font-label);
+            font-size: 1.1rem;
+            color: var(--gold-soft);
+            margin-bottom: 2rem;
+        }
+
+        .details-row div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.15rem;
+        }
+
+        .details-row span.label {
+            font-size: 0.78rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sage);
+        }
+
+        .countdown {
+            display: flex;
+            gap: 1.1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .countdown .cell {
+            background: var(--surface);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 14px;
+            padding: 0.9rem 1.1rem;
+            min-width: 82px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+        }
+
+        .countdown .num {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            color: var(--gold);
+            display: block;
+            font-weight: 600;
+        }
+
+        .countdown .unit {
+            font-family: var(--font-label);
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--sage);
+        }
+
+        .cta-row {
+            margin-top: 2.2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            font-family: var(--font-label);
+            font-size: 1.08rem;
+            letter-spacing: 0.08em;
+            padding: 0.8rem 2.1rem;
+            border-radius: 999px;
+            border: 1px solid var(--wine);
+            background: var(--wine);
+            color: var(--cream);
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+            background: var(--wine-deep);
+            border-color: var(--wine-deep);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--wine);
+        }
+
+        .btn.ghost:hover {
+            background: var(--wine);
+            color: var(--cream);
+        }
+
+        /* ---------- generic section shell ---------- */
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4.2rem 1.4rem 5rem;
+        }
+
+        .section-intro {
+            max-width: 56ch;
+            margin: 0 auto 2.4rem;
+            text-align: center;
+            color: var(--ink);
+            opacity: 0.85;
+        }
+
+        /* ---------- our story ---------- */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.6rem;
+        }
+
+        .story-card {
+            background: var(--surface);
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.12);
+            border-bottom: 2px solid var(--gold-soft);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 34px rgba(0, 0, 0, 0.5);
+        }
+
+        .story-card h3 {
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--gold);
+            margin: 0.4rem 0 0.5rem;
+        }
+
+        .story-card p {
+            font-size: 0.96rem;
+            margin: 0;
+            color: var(--ink);
+            opacity: 0.85;
+        }
+
+        .story-icon {
+            width: 34px;
+            height: 34px;
+            color: var(--gold);
+        }
+
+        /* ---------- gallery ---------- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.1rem;
+        }
+
+        .gallery-tile {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            color: var(--cream);
+            isolation: isolate;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .gallery-tile:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.18);
+        }
+
+        .gallery-tile::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .gallery-tile.t1::before {
+            background: linear-gradient(155deg, #6E2233, #170F12);
+        }
+
+        .gallery-tile.t2::before {
+            background: linear-gradient(155deg, #8A6A1E, #241820);
+        }
+
+        .gallery-tile.t3::before {
+            background: linear-gradient(155deg, #3E4A34, #170F12);
+        }
+
+        .gallery-tile.t4::before {
+            background: linear-gradient(155deg, #170F12, #B03B54);
+        }
+
+        .gallery-tile.t5::before {
+            background: linear-gradient(155deg, #4A2530, #2D1E27);
+        }
+
+        .gallery-tile.t6::before {
+            background: linear-gradient(155deg, #170F12, #6E2233);
+        }
+
+        .gallery-tile svg {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 26px;
+            height: 26px;
+            opacity: 0.8;
+        }
+
+        .gallery-tile span {
+            font-family: var(--font-label);
+            font-style: italic;
+            font-size: 1.05rem;
+        }
+
+        .gallery-note {
+            text-align: center;
+            font-family: var(--font-label);
+            font-style: italic;
+            color: var(--sage);
+            margin-top: 1.6rem;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- forms (shared: rsvp + upload) ---------- */
+        .card {
+            background: var(--surface);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-top: 3px solid var(--gold);
+            border-radius: 22px;
+            padding: 2.2rem clamp(1.2rem, 4vw, 2.6rem);
+            max-width: 640px;
+            margin: 0 auto;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+        }
+
+        label {
+            display: block;
+            font-family: var(--font-label);
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            color: var(--gold-soft);
+            margin-bottom: 0.35rem;
+            margin-top: 1.1rem;
+        }
+
+        label:first-of-type {
+            margin-top: 0;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=number],
+        select,
+        textarea {
+            width: 100%;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            padding: 0.65rem 0.8rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            background: var(--surface-2);
+            color: var(--ink);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-top: 0.4rem;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            font-family: var(--font-body);
+            font-size: 0.96rem;
+            color: var(--ink);
+            background: var(--surface-2);
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        .radio-group input {
+            width: auto;
+        }
+
+        .form-actions {
+            margin-top: 1.8rem;
+            text-align: center;
+        }
+
+        .hint {
+            font-size: 0.82rem;
+            color: var(--sage);
+            margin-top: 0.3rem;
+        }
+
+        .field-error {
+            color: var(--wine);
+            font-size: 0.82rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .thankyou {
+            text-align: center;
+            padding: 1.4rem 0;
+        }
+
+        .thankyou svg {
+            width: 52px;
+            height: 52px;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .thankyou h3 {
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--gold);
+            font-size: 1.6rem;
+            margin: 0 0 0.5rem;
+        }
+
+        /* ---------- upload page ---------- */
+        .upload-zone {
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 2rem 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.drag {
+            background: var(--surface-2);
+            border-color: var(--gold);
+        }
+
+        .upload-zone svg {
+            width: 38px;
+            height: 38px;
+            margin-bottom: 0.6rem;
+        }
+
+        .upload-zone input {
+            display: none;
+        }
+
+        .progress-list {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .progress-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.6rem;
+            padding: 0.3rem 0;
+            color: var(--ink);
+        }
+
+        .progress-item.ok {
+            color: var(--sage);
+        }
+
+        .progress-item.err {
+            color: var(--wine);
+        }
+
+        .photo-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 0.9rem;
+            margin-top: 2.6rem;
+        }
+
+        .photo-wall figure {
+            margin: 0;
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--surface-2);
+            position: relative;
+        }
+
+        .photo-wall img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-wall figcaption {
+            font-family: var(--font-label);
+            font-size: 0.82rem;
+            color: var(--cream);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+            padding: 1.4rem 0.6rem 0.4rem;
+        }
+
+        .wall-empty {
+            text-align: center;
+            color: var(--sage);
+            font-family: var(--font-label);
+            font-style: italic;
+            padding: 2rem 0;
+        }
+
+        .refresh-row {
+            text-align: center;
+            margin-top: 1.2rem;
+        }
+
+        .refresh-row button {
+            background: none;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--font-label);
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.4rem 1rem 3rem;
+            font-family: var(--font-label);
+            font-style: italic;
+            color: var(--sage);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width:720px) {
+            nav.tabs {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 0.6rem 1rem 1rem;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+                display: none;
+            }
+
+            nav.tabs.open {
+                display: flex;
+            }
+
+            nav.tabs button {
+                width: 100%;
+                text-align: left;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .details-row {
+                gap: 1.4rem;
+            }
+        }
+
+        /* ---------- Envelope Opening Overlay ---------- */
+        .envelope-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #241820 0%, #0F090C 100%);
+            backdrop-filter: blur(15px);
+            transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
+            overflow: hidden;
+            padding: 1.5rem;
+        }
+
+        .envelope-overlay.opened {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: scale(1.05);
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: min(440px, 92vw);
+            height: min(290px, 58vh);
+            perspective: 1200px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+
+        /* Invitation Card Inside Envelope */
+        .envelope-card {
+            position: absolute;
+            bottom: 8px;
+            left: 4%;
+            right: 4%;
+            height: 92%;
+            background: #F7EFE2;
+            color: #170F12;
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .envelope-overlay.opening .envelope-card {
+            transform: translateY(-110px) scale(1.02);
+        }
+
+        .envelope-wreath {
+            width: 60px;
+            height: 60px;
+            color: var(--wine);
+            margin-bottom: -0.5rem;
+        }
+
+        .envelope-eyebrow {
+            font-family: var(--font-label);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--wine-deep);
+            margin: 0.2rem 0;
+        }
+
+        .envelope-names {
+            font-family: var(--font-script);
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--wine);
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .envelope-date {
+            font-family: var(--font-label);
+            font-size: 1rem;
+            color: #6E2233;
+            margin: 0.3rem 0 0;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+        }
+
+        .envelope-venue {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            color: #555;
+            margin: 0.1rem 0 0;
+        }
+
+        .envelope-card-prompt {
+            font-family: var(--font-label);
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--wine);
+            margin-top: 0.8rem;
+            opacity: 0.85;
+        }
+
+        /* Envelope Body & Pocket */
+        .envelope-base {
+            position: absolute;
+            inset: 0;
+            background: #241820;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.15);
+            overflow: hidden;
+        }
+
+        .envelope-pocket {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+            background:
+                linear-gradient(to top right, #170F12 48%, transparent 50%),
+                linear-gradient(to top left, #170F12 48%, transparent 50%),
+                linear-gradient(to top, #2D1E27 40%, transparent 42%);
+            border-bottom: 2px solid var(--gold);
+            border-radius: 0 0 12px 12px;
+        }
+
+        /* Envelope Top Flap */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg, #2D1E27 0%, #170F12 100%);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top center;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 4;
+            border-top: 2px solid var(--gold);
+        }
+
+        .envelope-overlay.opening .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        /* Wax Seal - Positioned visibly at top center of envelope */
+        .wax-seal {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 88px;
+            height: 88px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+            filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 14px rgba(212, 175, 55, 0.45));
+            animation: sealPulse 2s infinite ease-in-out;
+        }
+
+        .wax-seal:hover {
+            transform: translate(-50%, -50%) scale(1.12);
+            filter: drop-shadow(0 10px 24px rgba(212, 175, 55, 0.85));
+        }
+
+        .seal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .envelope-overlay.opening .wax-seal {
+            transform: translate(-50%, -120%) scale(0.7);
+            opacity: 0;
+        }
+
+        .envelope-logo {
+            max-height: 65px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 0.4rem;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+        }
+
+        .hero-logo {
+            max-height: 110px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 0.8rem;
+            filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.3));
+        }
+
+        @keyframes sealPulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+            }
+
+            50% {
+                filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+            }
+        }
+
+        .envelope-action-text {
+            font-family: var(--font-label);
+            font-size: 1.1rem;
+            letter-spacing: 0.08em;
+            color: var(--gold-soft);
+            text-align: center;
+            animation: bounceText 2s infinite;
+        }
+
+        @keyframes bounceText {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Replay Envelope Button in Header */
+        .btn-envelope-replay {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--gold);
+            color: var(--gold-soft);
+            font-family: var(--font-label);
+            font-size: 0.9rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-right: 0.5rem;
+        }
+
+        .btn-envelope-replay:hover {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        /* ---------- RSVP Contacts Box ---------- */
+        .rsvp-contacts-card {
+            background: var(--surface-2);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .rsvp-contacts-title {
+            font-family: var(--font-label);
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            letter-spacing: 0.04em;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-item {
+            background: var(--surface);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--ink);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-host-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--wine);
+            font-weight: 500;
+        }
+
+        .contact-phone-num {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--gold-soft);
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .contact-badge {
+            font-family: var(--font-label);
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: rgba(140, 164, 124, 0.2);
+            color: var(--sage);
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            margin-top: 0.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- reusable botanical line-art -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <symbol id="branch" viewBox="0 0 200 50">
+                <path d="M2 25 C 50 5, 150 45, 198 25" fill="none" stroke="currentColor" stroke-width="1.4" />
+                <path d="M60 15 C 66 6, 76 6, 80 14 C 74 18, 64 20, 60 15Z" fill="currentColor" opacity="0.85" />
+                <path d="M120 34 C 114 25, 104 25, 100 33 C 106 37, 116 39, 120 34Z" fill="currentColor"
+                    opacity="0.85" />
+                <circle cx="100" cy="25" r="3" fill="currentColor" />
+                <circle cx="150" cy="18" r="2" fill="currentColor" opacity="0.7" />
+                <circle cx="40" cy="30" r="2" fill="currentColor" opacity="0.7" />
+            </symbol>
+            <symbol id="wreath" viewBox="0 0 300 300">
+                <g fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M150 20 C 60 40, 20 130, 40 200 C 60 270, 140 290, 150 280" />
+                    <path d="M150 20 C 240 40, 280 130, 260 200 C 240 270, 160 290, 150 280" />
+                </g>
+                <g fill="currentColor">
+                    <ellipse cx="55" cy="80" rx="10" ry="5" transform="rotate(-30 55 80)" />
+                    <ellipse cx="35" cy="130" rx="10" ry="5" transform="rotate(-60 35 130)" />
+                    <ellipse cx="40" cy="190" rx="10" ry="5" transform="rotate(-100 40 190)" />
+                    <ellipse cx="245" cy="80" rx="10" ry="5" transform="rotate(30 245 80)" />
+                    <ellipse cx="265" cy="130" rx="10" ry="5" transform="rotate(60 265 130)" />
+                    <ellipse cx="260" cy="190" rx="10" ry="5" transform="rotate(100 260 190)" />
+                    <circle cx="75" cy="230" r="4" />
+                    <circle cx="225" cy="230" r="4" />
+                </g>
+            </symbol>
+            <symbol id="icon-camera" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M9 3l-1.5 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.5L15 3H9zm3 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+            </symbol>
+            <symbol id="icon-heart" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M12 21s-7.5-4.9-10-9.3C.5 8.4 2.4 5 5.9 5c2 0 3.4 1 4.6 2.6C11.7 6 13.1 5 15.1 5c3.5 0 5.4 3.4 3.9 6.7C19.5 16.1 12 21 12 21z" />
+            </symbol>
+            <symbol id="icon-check" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-width="2" d="M4 12.5l5.5 5.5L20 6" />
+            </symbol>
+            <symbol id="icon-upload" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-width="1.6"
+                    d="M12 15V4m0 0L7 9m5-5l5 5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Envelope Opening Overlay -->
+    <div class="envelope-overlay" id="envelopeOverlay" aria-label="Wedding Invitation Envelope">
+        <div class="envelope-wrapper" id="envelopeWrapper" tabindex="0" role="button"
+            aria-label="Click to open invitation envelope">
+            <div class="envelope-card">
+                <img src="https://assets.unlayer.com/projects/284664/1785929884183-LOGO.png" alt="Wedding Logo"
+                    class="envelope-logo">
+                <p class="envelope-eyebrow">Nikkah &amp; Engagement</p>
+                <h2 class="envelope-names">Zainab <span class="amp">&amp;</span> Abdulazeez</h2>
+                <p class="envelope-date">14 November 2026</p>
+                <p class="envelope-venue">Oraukwu Hall, Doyin-Orile, Surulere</p>
+                <p class="envelope-card-prompt">Welcome to our wedding celebration</p>
+            </div>
+
+            <div class="envelope-base">
+                <div class="envelope-pocket"></div>
+                <div class="envelope-flap" id="envelopeFlap"></div>
+                <div class="wax-seal" id="waxSeal">
+                    <img src="https://assets.unlayer.com/projects/284664/1785929708052-Seal.png" alt="Wax Seal"
+                        class="seal-img">
+                </div>
+            </div>
+        </div>
+        <div class="envelope-action-text" id="envelopeActionText">
+            💌 Tap the Wax Seal to Open Invitation
+        </div>
+    </div>
+
+    <header class="nav">
+        <a href="#" class="brand"><img src="https://assets.unlayer.com/projects/284664/1785929884183-LOGO.png"
+                alt="Zainab &amp; Abdulazeez Logo" class="brand-logo"></a>
+        <div style="display:flex; align-items:center;">
+            <button class="btn-envelope-replay" id="replayEnvelopeBtn" title="View Invitation Envelope">💌
+                Envelope</button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+        </div>
+        <nav class="tabs" id="tabs">
+            <button data-target="home" class="active">Home</button>
+            <button data-target="story">Our Story</button>
+            <button data-target="gallery">Gallery</button>
+            <button data-target="rsvp">RSVP</button>
+            <button data-target="photos">Guest Photos</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <img src="https://assets.unlayer.com/projects/284664/1785929884183-LOGO.png"
+                    alt="Zainab &amp; Abdulazeez Wedding Logo" class="hero-logo">
+                <p class="eyebrow">The families of Mr &amp; Mrs Jimoh Balogun and Mr &amp; Mrs Adeniyi<br>cordially
+                    invite you to the Nikkah &amp; Engagement of their children</p>
+                <h1>Zainab <span class="amp">&amp;</span> Abdulazeez</h1>
+                <p class="tagline">Two families, one beautiful beginning. We can't wait to celebrate with you.</p>
+
+                <div class="details-row">
+                    <div><span class="label">Date</span> 14 November 2026</div>
+                    <div><span class="label">Time</span> 10:00 AM</div>
+                    <div><span class="label">Venue</span> Oraukwu Hall, Doyin-Orile, Surulere</div>
+                </div>
+
+                <div class="countdown" id="countdown" aria-live="polite">
+                    <div class="cell"><span class="num" id="cd-days">00</span><span class="unit">Days</span></div>
+                    <div class="cell"><span class="num" id="cd-hours">00</span><span class="unit">Hours</span></div>
+                    <div class="cell"><span class="num" id="cd-mins">00</span><span class="unit">Mins</span></div>
+                    <div class="cell"><span class="num" id="cd-secs">00</span><span class="unit">Secs</span></div>
+                </div>
+
+                <div class="cta-row">
+                    <button class="btn" data-goto="rsvp">RSVP Now</button>
+                    <button class="btn ghost" data-goto="gallery">View Gallery</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR STORY -->
+        <section id="story" class="page">
+            <div class="section">
+                <p class="eyebrow">How it began</p>
+                <h2 class="section-title">Our Story</h2>
+                <div class="divider"><svg>
+                        <use href="#branch" />
+                    </svg></div>
+                <p class="section-intro">A short story of two people, one journey, and the families who raised them.</p>
+
+                <div class="story-grid">
+                    <div class="story-card">
+                        <svg class="story-icon" viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg>
+                        <h3>How We Met</h3>
+                        <p>Replace this with the story of your first meeting — a mutual friend, a Lagos rooftop, a long
+                            conversation that didn't want to end.</p>
+                    </div>
+                    <div class="story-card">
+                        <svg class="story-icon" viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg>
+                        <h3>Traditional Introduction</h3>
+                        <p>Describe your introduction ceremony here — the day both families formally came together to
+                            bless the union.</p>
+                    </div>
+                    <div class="story-card">
+                        <svg class="story-icon" viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg>
+                        <h3>The Proposal</h3>
+                        <p>Tell guests where and how the question was popped — this is a favourite section, worth a few
+                            warm sentences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery" class="page">
+            <div class="section">
+                <p class="eyebrow">Moments so far</p>
+                <h2 class="section-title">Gallery</h2>
+                <div class="divider"><svg>
+                        <use href="#branch" />
+                    </svg></div>
+                <p class="section-intro">A few of our favourite moments together. Swap these tiles for your own photos
+                    before sending this out.</p>
+
+                <div class="gallery-grid">
+                    <div class="gallery-tile t1"><svg viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg><span>Proposal Day</span></div>
+                    <div class="gallery-tile t2"><svg viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg><span>Traditional Introduction</span></div>
+                    <div class="gallery-tile t3"><svg viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg><span>Engagement Shoot</span></div>
+                    <div class="gallery-tile t4"><svg viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg><span>First Trip Together</span></div>
+                    <div class="gallery-tile t5"><svg viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg><span>Family Gathering</span></div>
+                    <div class="gallery-tile t6"><svg viewBox="0 0 24 24">
+                            <use href="#icon-heart" />
+                        </svg><span>Bridal Shower</span></div>
+                </div>
+                <p class="gallery-note">See the note in the code comments for how to swap these tiles for real
+                    photographs.</p>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section id="rsvp" class="page">
+            <div class="section">
+                <p class="eyebrow">Kindly respond at your earliest convenience</p>
+                <h2 class="section-title">RSVP</h2>
+                <div class="divider"><svg>
+                        <use href="#branch" />
+                    </svg></div>
+
+                <div class="card">
+                    <!-- Direct Phone / WhatsApp RSVP Contacts -->
+                    <div class="rsvp-contacts-card">
+                        <h3 class="rsvp-contacts-title">Direct RSVP Contacts (Call / WhatsApp)</h3>
+                        <div class="contacts-grid">
+                            <a href="https://wa.me/2347057914224" target="_blank" rel="noopener" class="contact-item">
+                                <span class="contact-host-name">Ridwon</span>
+                                <span class="contact-phone-num">+234 705 791 4224</span>
+                                <span class="contact-badge">📞 Call / WhatsApp</span>
+                            </a>
+                            <a href="https://wa.me/2349151038406" target="_blank" rel="noopener" class="contact-item">
+                                <span class="contact-host-name">Sodiq</span>
+                                <span class="contact-phone-num">09151038406</span>
+                                <span class="contact-badge">📞 Call / WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form id="rsvpForm" novalidate>
+                        <label for="r-name">Full name *</label>
+                        <input type="text" id="r-name" required>
+                        <div class="field-error" id="err-name">Please tell us your name.</div>
+
+                        <label for="r-email">Email address</label>
+                        <input type="email" id="r-email" placeholder="you@example.com">
+
+                        <label>Will you be joining us? *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="attending" value="yes" required> Joyfully accept</label>
+                            <label><input type="radio" name="attending" value="no"> Regretfully decline</label>
+                        </div>
+                        <div class="field-error" id="err-attending">Please let us know either way.</div>
+
+                        <div id="attendingExtras" style="display:none;">
+                            <label for="r-guests">Number of guests (including you)</label>
+                            <input type="number" id="r-guests" min="1" max="6" value="1">
+
+                            <label for="r-meal">Meal preference</label>
+                            <select id="r-meal">
+                                <option value="chicken">Jollof &amp; Chicken</option>
+                                <option value="fish">Fish</option>
+                                <option value="vegetarian">Vegetarian</option>
+                            </select>
+
+                            <label for="r-song">A song that will get you on the dance floor</label>
+                            <input type="text" id="r-song" placeholder="Optional">
+                        </div>
+
+                        <label for="r-message">Message for the couple</label>
+                        <textarea id="r-message" placeholder="Optional"></textarea>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Send RSVP</button>
+                        </div>
+                    </form>
+
+                    <div class="thankyou" id="rsvpThanks" style="display:none;">
+                        <svg viewBox="0 0 24 24">
+                            <use href="#icon-check" />
+                        </svg>
+                        <h3>Thank you!</h3>
+                        <p id="thanksMessage">Your RSVP has been received.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUEST PHOTOS -->
+        <section id="photos" class="page">
+            <div class="section">
+                <p class="eyebrow">Share the day</p>
+                <h2 class="section-title">Guest Photos</h2>
+                <div class="divider"><svg>
+                        <use href="#branch" />
+                    </svg></div>
+                <p class="section-intro">Took a lovely photo on the day? Upload it here so everyone can enjoy it. Photos
+                    shared here are visible to all guests.</p>
+
+                <div class="card">
+                    <label for="up-name">Your name *</label>
+                    <input type="text" id="up-name" placeholder="So we know who to thank">
+
+                    <label for="up-caption">Caption (optional)</label>
+                    <input type="text" id="up-caption" placeholder="e.g. Dancing all night!">
+
+                    <label style="margin-top:1.4rem;">Photos</label>
+                    <div class="upload-zone" id="dropZone" tabindex="0" role="button" aria-label="Upload photos">
+                        <svg viewBox="0 0 24 24">
+                            <use href="#icon-upload" />
+                        </svg>
+                        <p>Tap to choose photos, or drag them here</p>
+                        <p class="hint">JPG or PNG, compressed automatically for a smooth upload.</p>
+                        <input type="file" id="fileInput" accept="image/*" multiple>
+                    </div>
+                    <div class="progress-list" id="progressList"></div>
+                </div>
+
+                <div class="refresh-row"><button id="refreshWall">Refresh gallery</button></div>
+                <div class="photo-wall" id="photoWall"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        With love, Zainab &amp; Abdulazeez
+        <div style="margin-top:0.6rem;"><button id="dashboardLink"
+                style="background:none;border:none;font-family:var(--font-label);font-style:italic;color:var(--sage);text-decoration:underline;cursor:pointer;font-size:0.9rem;">For
+                the couple: view responses</button></div>
+    </footer>
+
+    <!-- COUPLE'S DASHBOARD (not in main nav, passcode-protected) -->
+    <section id="dashboard" class="page">
+        <div class="section">
+            <p class="eyebrow">Private</p>
+            <h2 class="section-title">Couple's Dashboard</h2>
+            <div class="divider"><svg>
+                    <use href="#branch" />
+                </svg></div>
+
+            <div id="dashLocked" class="card" style="text-align:center;">
+                <p>This page shows every RSVP and lets you export them. Enter the passcode to continue.</p>
+                <button class="btn" id="dashUnlockBtn">Enter Dashboard</button>
+            </div>
+
+            <div id="dashContent" style="display:none;">
+                <div class="card" style="max-width:900px;">
+                    <div id="dashSummary"
+                        style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:center; margin-bottom:1.6rem;">
+                    </div>
+                    <div style="text-align:center; margin-bottom:1.6rem;">
+                        <button class="btn ghost" id="exportCsvBtn">Export RSVPs as CSV</button>
+                        <button class="btn ghost" id="refreshDashBtn">Refresh</button>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <table id="rsvpTable" style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+                            <thead>
+                                <tr style="text-align:left; border-bottom:2px solid var(--wine);">
+                                    <th style="padding:0.5rem;">Name</th>
+                                    <th style="padding:0.5rem;">Attending</th>
+                                    <th style="padding:0.5rem;">Guests</th>
+                                    <th style="padding:0.5rem;">Meal</th>
+                                    <th style="padding:0.5rem;">Email</th>
+                                    <th style="padding:0.5rem;">Message</th>
+                                    <th style="padding:0.5rem;">Submitted</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rsvpTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /* ============ EDIT THESE TO PERSONALISE ============ */
+        const CONFIG = {
+            weddingDateISO: "2026-11-14T10:00:00",
+            dashboardPasscode: "zainab-abdulazeez-2026",
+        };
+        /* ===================================================== */
+
+        /* ---------- Envelope Opening Logic ---------- */
+        const envelopeOverlay = document.getElementById('envelopeOverlay');
+        const envelopeWrapper = document.getElementById('envelopeWrapper');
+        const replayEnvelopeBtn = document.getElementById('replayEnvelopeBtn');
+
+        function openEnvelope() {
+            if (envelopeOverlay.classList.contains('opening') || envelopeOverlay.classList.contains('opened')) return;
+            envelopeOverlay.classList.add('opening');
+
+            setTimeout(() => {
+                envelopeOverlay.classList.add('opened');
+            }, 1300);
+        }
+
+        function resetEnvelope() {
+            envelopeOverlay.classList.remove('opened');
+            envelopeOverlay.classList.remove('opening');
+        }
+
+        if (envelopeWrapper) {
+            envelopeWrapper.addEventListener('click', openEnvelope);
+            envelopeWrapper.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openEnvelope();
+                }
+            });
+        }
+
+        if (replayEnvelopeBtn) {
+            replayEnvelopeBtn.addEventListener('click', resetEnvelope);
+        }
+
+        /* ---------- navigation ---------- */
+        const tabButtons = document.querySelectorAll('nav.tabs button');
+        const pages = document.querySelectorAll('.page');
+        const tabsNav = document.getElementById('tabs');
+        const menuToggle = document.getElementById('menuToggle');
+
+        function showPage(id) {
+            pages.forEach(p => p.classList.toggle('active', p.id === id));
+            tabButtons.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+            tabsNav.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            window.scrollTo({ top: 0, behavior: 'auto' });
+            if (id === 'photos') loadPhotoWall();
+        }
+        tabButtons.forEach(b => b.addEventListener('click', () => showPage(b.dataset.target)));
+        document.querySelectorAll('[data-goto]').forEach(b =>
+            b.addEventListener('click', () => showPage(b.dataset.goto))
+        );
+        menuToggle.addEventListener('click', () => {
+            const open = tabsNav.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(open));
+        });
+
+        /* ---------- countdown ---------- */
+        let countdownTimer = null;
+        function tickCountdown() {
+            const target = new Date(CONFIG.weddingDateISO).getTime();
+            const diff = target - Date.now();
+            if (diff <= 0) {
+                const el = document.getElementById('countdown');
+                el.innerHTML = '<p style="font-family:var(--font-label); font-style:italic; font-size:1.15rem; color:var(--gold-soft);">We celebrated on 14 November 2026 — thank you for being part of our story.</p>';
+                if (countdownTimer) clearInterval(countdownTimer);
+                return;
+            }
+            let d = Math.floor(diff / 86400000); let rem = diff - d * 86400000;
+            const h = Math.floor(rem / 3600000); rem -= h * 3600000;
+            const m = Math.floor(rem / 60000); rem -= m * 60000;
+            const s = Math.floor(rem / 1000);
+            document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+            document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+            document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+        }
+        tickCountdown();
+        countdownTimer = setInterval(tickCountdown, 1000);
+
+        /* ---------- RSVP ---------- */
+        const rsvpForm = document.getElementById('rsvpForm');
+        const attendingRadios = rsvpForm.querySelectorAll('input[name="attending"]');
+        const attendingExtras = document.getElementById('attendingExtras');
+
+        attendingRadios.forEach(r => r.addEventListener('change', () => {
+            attendingExtras.style.display = r.value === 'yes' && r.checked ? 'block' : 'none';
+        }));
+
+        function uid() {
+            return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+        }
+
+        rsvpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('r-name').value.trim();
+            const attending = rsvpForm.querySelector('input[name="attending"]:checked');
+
+            document.getElementById('err-name').style.display = name ? 'none' : 'block';
+            document.getElementById('err-attending').style.display = attending ? 'none' : 'block';
+            if (!name || !attending) return;
+
+            const entry = {
+                id: uid(),
+                name,
+                email: document.getElementById('r-email').value.trim(),
+                attending: attending.value,
+                guests: attending.value === 'yes' ? Number(document.getElementById('r-guests').value || 1) : 0,
+                meal: attending.value === 'yes' ? document.getElementById('r-meal').value : null,
+                song: document.getElementById('r-song').value.trim(),
+                message: document.getElementById('r-message').value.trim(),
+                submittedAt: new Date().toISOString()
+            };
+
+            try {
+                await window.storage.set('rsvp:' + entry.id, JSON.stringify(entry), true);
+                document.getElementById('thanksMessage').textContent = attending.value === 'yes'
+                    ? `We can't wait to celebrate with you, ${name}!`
+                    : `Thank you for letting us know, ${name}. You'll be missed.`;
+                rsvpForm.style.display = 'none';
+                document.getElementById('rsvpThanks').style.display = 'block';
+            } catch (err) {
+                console.error('RSVP save failed', err);
+                alert("Something went wrong sending your RSVP — please try again in a moment.");
+            }
+        });
+
+        /* ---------- Guest photo upload ---------- */
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const progressList = document.getElementById('progressList');
+        const photoWall = document.getElementById('photoWall');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
+        ['dragover', 'dragenter'].forEach(evt => dropZone.addEventListener(evt, (e) => { e.preventDefault(); dropZone.classList.add('drag'); }));
+        ['dragleave', 'drop'].forEach(evt => dropZone.addEventListener(evt, (e) => { e.preventDefault(); dropZone.classList.remove('drag'); }));
+        dropZone.addEventListener('drop', (e) => { handleFiles(e.dataTransfer.files); });
+        fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+
+        function compressImage(file, maxDim, quality) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                const reader = new FileReader();
+                reader.onload = () => { img.src = reader.result; };
+                reader.onerror = reject;
+                img.onload = () => {
+                    let { width, height } = img;
+                    if (width > height && width > maxDim) { height = Math.round(height * maxDim / width); width = maxDim; }
+                    else if (height > maxDim) { width = Math.round(width * maxDim / height); height = maxDim; }
+                    const canvas = document.createElement('canvas');
+                    canvas.width = width; canvas.height = height;
+                    canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+                    resolve(canvas.toDataURL('image/jpeg', quality));
+                };
+                img.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function handleFiles(fileList) {
+            const files = Array.from(fileList).filter(f => f.type.startsWith('image/'));
+            if (!files.length) return;
+            const guestName = document.getElementById('up-name').value.trim() || 'A guest';
+            const caption = document.getElementById('up-caption').value.trim();
+
+            for (const file of files) {
+                const row = document.createElement('div');
+                row.className = 'progress-item';
+                row.textContent = `${file.name} — compressing…`;
+                progressList.prepend(row);
+
+                try {
+                    let dataUrl = await compressImage(file, 1400, 0.7);
+                    let approxBytes = dataUrl.length * 0.75;
+                    let quality = 0.7, dim = 1400;
+                    while (approxBytes > 4.3 * 1024 * 1024 && quality > 0.35) {
+                        quality -= 0.1; dim = Math.max(700, dim - 200);
+                        dataUrl = await compressImage(file, dim, quality);
+                        approxBytes = dataUrl.length * 0.75;
+                    }
+                    if (approxBytes > 4.5 * 1024 * 1024) {
+                        row.textContent = `${file.name} — too large even after compression, skipped.`;
+                        row.classList.add('err');
+                        continue;
+                    }
+                    const id = uid();
+                    const entry = { id, name: guestName, caption, dataUrl, uploadedAt: new Date().toISOString() };
+                    await window.storage.set('photo:' + id, JSON.stringify(entry), true);
+                    row.textContent = `${file.name} — uploaded ✓`;
+                    row.classList.add('ok');
+                } catch (err) {
+                    console.error('Upload failed', err);
+                    row.textContent = `${file.name} — upload failed`;
+                    row.classList.add('err');
+                }
+            }
+            loadPhotoWall();
+            fileInput.value = '';
+        }
+
+        async function loadPhotoWall() {
+            photoWall.innerHTML = '<p class="wall-empty">Loading photos…</p>';
+            try {
+                const listResult = await window.storage.list('photo:', true);
+                const keys = (listResult && listResult.keys) ? listResult.keys : [];
+                if (!keys.length) {
+                    photoWall.innerHTML = '<p class="wall-empty">No photos shared yet — be the first!</p>';
+                    return;
+                }
+                const entries = [];
+                for (const key of keys) {
+                    try {
+                        const res = await window.storage.get(key, true);
+                        if (res && res.value) entries.push(JSON.parse(res.value));
+                    } catch (e) { /* skip unreadable entries */ }
+                }
+                entries.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+                photoWall.innerHTML = '';
+                entries.forEach(p => {
+                    const fig = document.createElement('figure');
+                    fig.innerHTML = `<a href="${p.dataUrl}" download="wedding-photo-${p.id}.jpg" title="Download this photo">
+          <img src="${p.dataUrl}" alt="${(p.caption || 'Wedding photo').replace(/"/g, '')}" loading="lazy">
+        </a>
+        <figcaption>${escapeHtml(p.caption || 'Wedding day')} — ${escapeHtml(p.name)}</figcaption>`;
+                    photoWall.appendChild(fig);
+                });
+            } catch (err) {
+                console.error('Loading photo wall failed', err);
+                photoWall.innerHTML = '<p class="wall-empty">Couldn\'t load photos right now. Try refreshing.</p>';
+            }
+        }
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+        document.getElementById('refreshWall').addEventListener('click', loadPhotoWall);
+
+        /* ---------- Couple's dashboard ---------- */
+        let dashUnlocked = false;
+        let lastRsvpEntries = [];
+
+        function goToDashboard() {
+            pages.forEach(p => p.classList.toggle('active', p.id === 'dashboard'));
+            tabButtons.forEach(b => b.classList.remove('active'));
+            window.scrollTo({ top: 0, behavior: 'auto' });
+            if (dashUnlocked) loadDashboard();
+        }
+        document.getElementById('dashboardLink').addEventListener('click', goToDashboard);
+
+        document.getElementById('dashUnlockBtn').addEventListener('click', () => {
+            const entered = prompt("Enter the dashboard passcode:");
+            if (entered === null) return;
+            if (entered.trim() === CONFIG.dashboardPasscode) {
+                dashUnlocked = true;
+                document.getElementById('dashLocked').style.display = 'none';
+                document.getElementById('dashContent').style.display = 'block';
+                loadDashboard();
+            } else {
+                alert("That passcode isn't right — check CONFIG.dashboardPasscode in the code if you've forgotten it.");
+            }
+        });
+        document.getElementById('refreshDashBtn').addEventListener('click', loadDashboard);
+
+        async function loadDashboard() {
+            const tbody = document.getElementById('rsvpTableBody');
+            tbody.innerHTML = '<tr><td colspan="7" style="padding:1rem; text-align:center;">Loading…</td></tr>';
+            try {
+                const listResult = await window.storage.list('rsvp:', true);
+                const keys = (listResult && listResult.keys) ? listResult.keys : [];
+                const entries = [];
+                for (const key of keys) {
+                    try {
+                        const res = await window.storage.get(key, true);
+                        if (res && res.value) entries.push(JSON.parse(res.value));
+                    } catch (e) { /* skip unreadable entries */ }
+                }
+                entries.sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+                lastRsvpEntries = entries;
+
+                const accepted = entries.filter(e => e.attending === 'yes');
+                const declined = entries.filter(e => e.attending === 'no');
+                const totalGuests = accepted.reduce((sum, e) => sum + (Number(e.guests) || 0), 0);
+
+                document.getElementById('dashSummary').innerHTML = `
+      <div style="text-align:center;"><div style="font-family:var(--font-display); font-size:1.8rem; color:var(--wine);">${entries.length}</div><div class="hint">Responses</div></div>
+      <div style="text-align:center;"><div style="font-family:var(--font-display); font-size:1.8rem; color:var(--sage);">${accepted.length}</div><div class="hint">Accepted</div></div>
+      <div style="text-align:center;"><div style="font-family:var(--font-display); font-size:1.8rem; color:var(--rose);">${declined.length}</div><div class="hint">Declined</div></div>
+      <div style="text-align:center;"><div style="font-family:var(--font-display); font-size:1.8rem; color:var(--gold);">${totalGuests}</div><div class="hint">Total guests</div></div>
+    `;
+
+                if (!entries.length) {
+                    tbody.innerHTML = '<tr><td colspan="7" style="padding:1rem; text-align:center;">No RSVPs yet.</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = entries.map(e => `
+      <tr style="border-bottom:1px solid rgba(212,175,55,0.15);">
+        <td style="padding:0.5rem;">${escapeHtml(e.name)}</td>
+        <td style="padding:0.5rem;">${e.attending === 'yes' ? 'Accepted' : 'Declined'}</td>
+        <td style="padding:0.5rem;">${e.attending === 'yes' ? e.guests : '—'}</td>
+        <td style="padding:0.5rem;">${e.meal ? escapeHtml(e.meal) : '—'}</td>
+        <td style="padding:0.5rem;">${escapeHtml(e.email || '—')}</td>
+        <td style="padding:0.5rem; max-width:220px;">${escapeHtml(e.message || '—')}</td>
+        <td style="padding:0.5rem; white-space:nowrap;">${new Date(e.submittedAt).toLocaleDateString()}</td>
+      </tr>
+    `).join('');
+            } catch (err) {
+                console.error('Loading dashboard failed', err);
+                tbody.innerHTML = '<tr><td colspan="7" style="padding:1rem; text-align:center;">Couldn\'t load RSVPs. Try refreshing.</td></tr>';
+            }
+        }
+
+        document.getElementById('exportCsvBtn').addEventListener('click', () => {
+            if (!lastRsvpEntries.length) { alert('No RSVPs to export yet.'); return; }
+            const headers = ['Name', 'Attending', 'Guests', 'Meal', 'Email', 'Song', 'Message', 'SubmittedAt'];
+            const rows = lastRsvpEntries.map(e => [
+                e.name, e.attending, e.guests || '', e.meal || '', e.email || '', e.song || '', e.message || '', e.submittedAt
+            ]);
+            const csvEscape = (v) => `"${String(v).replace(/"/g, '""')}"`;
+            const csv = [headers, ...rows].map(row => row.map(csvEscape).join(',')).join('\n');
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'rsvp-responses.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+
+</html>
